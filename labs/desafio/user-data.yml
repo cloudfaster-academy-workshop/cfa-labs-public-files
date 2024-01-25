@@ -1,0 +1,10 @@
+#cloud-config
+package_update: true
+packages:
+    - httpd
+runcmd:
+    - wget -O /usr/local/init_faster.sh https://assets.cloudfaster.academy/danrezende/scripts/init_faster.sh
+    - chmod +x /usr/local/init_faster.sh
+    - sh /usr/local/init_faster.sh
+    - service httpd start
+    - chkconfig httpd on
